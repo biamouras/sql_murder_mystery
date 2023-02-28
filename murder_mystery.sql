@@ -24,3 +24,19 @@ Security footage shows that there were 2 witnesses.
 The first witness lives at the last house on "Northwestern Dr". 
 The second witness, named Annabel, lives somewhere on "Franklin Ave".
 */ 
+
+/* get the interview of first witness */
+select a.*
+from interview a, person b
+where a.person_id = b.id
+	and b.address_street_name = 'Northwestern Dr' /* identify the address */
+order by b.address_number desc /* order by the address number in descending order */
+limit 1; /* get the first line (last house) */
+
+/*
+TRANSCRIPT RESULT
+I heard a gunshot and then saw a man run out. 
+He had a "Get Fit Now Gym" bag. 
+The membership number on the bag started with "48Z". 
+Only gold members have those bags. The man got into a car with a plate that included "H42W".
+*/
