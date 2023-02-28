@@ -118,3 +118,29 @@ ME:
     Maybe they want to buy some of my items. 
     (Hint: When you use both AND and OR, don't forget to put brackets correctly!)
 */
+
+SELECT *
+FROM inhabitant
+WHERE (job = 'dealer' 
+    OR job = 'merchant')
+    AND state = 'friendly';
+
+/*
+HELEN:
+    I'd like to get the ring and the teapot. 
+    The rest is nothing but scrap. Please give me the two items. 
+    My personid is 15.
+*/
+
+UPDATE item
+SET owner = 15
+WHERE item = 'ring'
+    OR item = 'teapot';
+
+/* 
+HELEN updated my gold to 120
+ME:
+    Unfortunately, that's not enough gold to buy a sword. 
+    Seems like I do have to work after all. 
+    Maybe it's not a bad idea to change my name from Stranger to my real name before I will apply for a job.
+*/
