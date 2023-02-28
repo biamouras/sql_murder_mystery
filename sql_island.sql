@@ -61,3 +61,26 @@ personid	name	villageid	gender	job	gold	state
 10	Peter Drummer	1	m	smith	600	friendly
 18	Ryan Horse	3	m	blacksmith	390	friendly
 */
+
+/*
+ME:
+    No need to call me stranger! 
+    What's my personid? 
+    (Hint: In former queries, the * stands for: all columns. 
+    Instead of the star, you can also address one or more columns (seperated by a comma) and you will only get the columns you need.)
+*/
+
+SELECT personid
+FROM inhabitant
+WHERE name = 'Stranger';
+
+/*
+ME:
+    Hi Ernest! How much is a sword?
+ERNEST:
+    I can offer to make you a sword for 150 gold. That's the cheapest you will find! How much gold do you have?
+*/
+
+SELECT gold
+FROM inhabitant
+WHERE name = 'Stranger';
