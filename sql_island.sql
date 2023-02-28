@@ -84,3 +84,37 @@ ERNEST:
 SELECT gold
 FROM inhabitant
 WHERE name = 'Stranger';
+
+/* 
+RESULT: 0
+ME:
+    Damn! No mon, no fun. 
+    There has to be another option to earn gold other than going to work. 
+    Maybe I could collect ownerless items and sell them! 
+    Can I make a list of all items that don't belong to anyone? 
+    (Hint: You can recognize ownerless items by: WHERE owner IS NULL)
+*/
+
+SELECT *
+FROM item
+WHERE owner IS NULL;
+
+/* 
+ME:
+    Do you know a trick how to collect all the ownerless items?
+*/
+
+UPDATE item 
+SET owner = 20 
+WHERE item IN (
+    SELECT item
+    FROM item
+    WHERE owner IS NULL 
+);
+
+/* 
+ME:
+    Find a friendly inhabitant who is either a dealer or a merchant. 
+    Maybe they want to buy some of my items. 
+    (Hint: When you use both AND and OR, don't forget to put brackets correctly!)
+*/
