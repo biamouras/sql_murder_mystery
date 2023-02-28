@@ -102,3 +102,30 @@ TRANSCRIPT
     She has red hair and she drives a Tesla Model S. 
     I know that she attended the SQL Symphony Concert 3 times in December 2017. 
 */
+
+/* get the hiring person */
+select a.name
+from person a,
+	drivers_license b
+where a.license_id = b.id
+	and height between 65 and 67
+	and hair_color = 'red'
+	and car_make = 'Tesla'
+	and car_model = 'Model S'
+	and a.id in (
+		select person_id
+		from facebook_event_checkin
+		where event_name = 'SQL Symphony Concert'
+		and date between 20171201 and  20171231
+		group by person_id
+		having count(person_id) = 3
+	)
+
+/*
+NAME: Miranda Priestly
+*/
+
+/* 
+Congrats, you found the brains behind the murder! 
+Everyone in SQL City hails you as the greatest SQL detective of all time. Time to break out the champagne!
+*/
