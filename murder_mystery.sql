@@ -34,9 +34,24 @@ order by b.address_number desc /* order by the address number in descending orde
 limit 1; /* get the first line (last house) */
 
 /*
+witness 1: 14887 (person id)
 TRANSCRIPT RESULT
 I heard a gunshot and then saw a man run out. 
 He had a "Get Fit Now Gym" bag. 
 The membership number on the bag started with "48Z". 
 Only gold members have those bags. The man got into a car with a plate that included "H42W".
+*/
+
+/* get the interview of second witness */
+select a.*
+from interview a, person b
+where a.person_id = b.id
+	and b.name like 'Annabel%'
+	and b.address_street_name = 'Franklin Ave';
+
+/*
+witness 2: 16371 (person id)
+TRANSCRIPT RESULT
+I saw the murder happen, and I recognized the killer from my gym 
+when I was working out last week on January the 9th.
 */
