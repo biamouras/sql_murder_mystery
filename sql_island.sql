@@ -24,3 +24,40 @@ ME:
 SELECT * 
 FROM inhabitant
 WHERE state = 'friendly';
+
+/*
+ME:
+    There is no way around getting a sword for myself. 
+    I will now try to find a friendly weaponsmith to forge me one. 
+    (Hint: You can combine predicates in the WHERE clause with AND)
+*/
+
+SELECT *
+FROM inhabitant
+WHERE state = 'friendly'
+    AND job = 'weaponsmith';
+
+/*
+RESULT
+personid	name	villageid	gender	job	gold	state
+2	Ernest Perry	3	m	weaponsmith	280	friendly
+*/
+
+/*
+BUTCHER:
+    Oh, that does not look good. 
+    Maybe other friendly smiths can help you out, e.g. a blacksmith. 
+    Try out: job LIKE '%smith' to find all inhabitants whose job ends with 'smith' (% is a wildcard for any number of characters).
+*/
+
+SELECT *
+FROM inhabitant
+WHERE state = 'friendly'
+    AND job LIKE '%smith';
+
+/* RESULT
+personid	name	villageid	gender	job	gold	state
+2	Ernest Perry	3	m	weaponsmith	280	friendly
+10	Peter Drummer	1	m	smith	600	friendly
+18	Ryan Horse	3	m	blacksmith	390	friendly
+*/
